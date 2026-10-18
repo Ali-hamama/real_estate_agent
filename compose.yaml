@@ -1,0 +1,35 @@
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: realtor
+    working_dir: /workspace
+    environment:
+      DATABASE_URL: postgresql+psycopg://realtor:realtor@postgres:5432/transactions
+    volumes:
+      - .:/workspace
+    stdin_open: true
+    tty: true
+
+  postgres:
+    image: postgres:17
+    container_name: realtor-postgres
+    environment:
+      POSTGRES_USER: realtor
+      POSTGRES_PASSWORD: realtor
+      POSTGRES_DB: transactions
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db:/var/lib/postgresql/data
+
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: realtor-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@realtor.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"

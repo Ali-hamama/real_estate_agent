@@ -1,0 +1,66 @@
+# Downloaded/scraped data and generated outputs.
+# Keep the folder structure using .gitkeep files, while excluding actual data.
+/data/raw/**
+/data/processed/**
+/data/reports/**
+!/data/raw/**/
+!/data/processed/**/
+!/data/reports/**/
+!/data/raw/**/.gitkeep
+!/data/processed/**/.gitkeep
+!/data/reports/**/.gitkeep
+
+# Scraper code and exploratory notebooks kept locally.
+/data/scripts/scrape*.py
+/data/scripts/*.ipynb
+
+# Local PostgreSQL storage and database exports.
+/db/
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+
+# Secrets and machine-specific configuration.
+.env
+.env.*
+!.env.example
+.aws/
+.ssh/
+.secrets/
+secrets/
+*.pem
+*.key
+credentials*.json
+service-account*.json
+
+# Local agent and editor settings.
+.agents/
+.codex/
+.vscode/
+.idea/
+
+# Python environments, caches, and generated packaging files.
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.tox/
+.nox/
+.ipynb_checkpoints/
+.coverage*
+htmlcov/
+build/
+dist/
+
+# Local logs and operating system files.
+*.log
+logs/
+.DS_Store
+Thumbs.db
